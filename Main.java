@@ -1,18 +1,18 @@
 public class Main {
     public static void main(String[] args) {
-        // Create an Employee object
-        Employee employee = new Employee("John Doe", "Software Engineer", 80000);
+        // Create an Invoice object with a specified amount
+        Invoice invoice = new Invoice(150.75);
 
-        // Create separate objects for processing payroll and generating payslip
-        PayrollProcessor payrollProcessor = new PayrollProcessor();
-        PayslipGenerator payslipGenerator = new PayslipGenerator();
+        // Process payment using Credit Card
+        System.out.println("Processing with Credit Card:");
+        PaymentStrategy creditCardPayment = new CreditCardPayment();
+        invoice.processPayment(creditCardPayment);
 
-        // Generate the employee's payslip
-        System.out.println("Generating Payslip:");
-        payslipGenerator.generatePayslip(employee);
+        // Process payment using PayPal
+        System.out.println("\nProcessing with PayPal:");
+        PaymentStrategy payPalPayment = new PayPalPayment();
+        invoice.processPayment(payPalPayment);
 
-        // Process payroll for the employee
-        System.out.println("\nProcessing Payroll:");
-        payrollProcessor.processPayroll(employee);
+        // Additional payment types can be added in the future without modifying Invoice class
     }
 }
