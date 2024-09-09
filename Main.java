@@ -1,18 +1,20 @@
 public class Main {
     public static void main(String[] args) {
-        // Create an Invoice object with a specified amount
-        Invoice invoice = new Invoice(150.75);
+        // Create a Rock playlist
+        Playlist rockPlaylist = new Playlist("My Favorite Rock Songs", "Rock");
+        rockPlaylist.addSong("Bohemian Rhapsody - Queen");
+        rockPlaylist.addSong("Stairway to Heaven - Led Zeppelin");
+        rockPlaylist.playAll();
 
-        // Process payment using Credit Card
-        System.out.println("Processing with Credit Card:");
-        PaymentStrategy creditCardPayment = new CreditCardPayment();
-        invoice.processPayment(creditCardPayment);
+        // Create a Pop playlist
+        Playlist popPlaylist = new Playlist("Top Pop Hits", "Pop");
+        popPlaylist.addSong("Shape of You - Ed Sheeran");
+        popPlaylist.addSong("Blinding Lights - The Weeknd");
+        popPlaylist.playAll();
 
-        // Process payment using PayPal
-        System.out.println("\nProcessing with PayPal:");
-        PaymentStrategy payPalPayment = new PayPalPayment();
-        invoice.processPayment(payPalPayment);
-
-        // Additional payment types can be added in the future without modifying Invoice class
+        // Try creating a playlist with another genre
+        Playlist jazzPlaylist = new Playlist("Smooth Jazz", "Jazz");
+        jazzPlaylist.addSong("So What - Miles Davis");
+        jazzPlaylist.playAll();
     }
 }
